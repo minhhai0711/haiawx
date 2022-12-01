@@ -1,6 +1,6 @@
 ---
 - name: test
-  hosts: all
+  hosts: RS-HN-01
   tasks:
   - name: showInterface
     ios_command:
