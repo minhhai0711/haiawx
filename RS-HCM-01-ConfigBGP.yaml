@@ -3,19 +3,18 @@
   hosts: RS-HCM-01
   tasks:
     - name: ConfigBGP
-       ios_config:
-        parents:  # vào mode config của lệnh dưới
-          - router bgp 1000
-        lines:     # các lệnh sẽ thực hiện
-          - neighbor 210.10.14.14 remote-as 100
-          - neighbor 210.10.14.14 description Peerv4-ASN-100
-          - neighbor 210.10.14.14 version 4
-          - address-family ipv4
-          - neighbor 210.10.14.14 activate
-          - neighbor 210.10.14.14 send-community
-          - neighbor 210.10.14.14 soft-reconfiguration inbound
-          - neighbor 210.10.14.14 prefix-list DOMESTIC-v4 out
-          - neighbor 210.10.14.14 route-map Peer-VNIX-No-Export out
-          - neighbor 210.10.14.14 maximum-prefix 5000 100
-          - neighbor 210.10.14.14 filter-list 14 in
-    - debug: var=show_ip.stdout_lines
+      cisco.ios.ios_bgp:
+        config:
+          bgp_as: 1000
+          log_neighbor_changes: true
+          neighbors:
+          - neighbor: 210.10.14.14
+          remote_as: 100
+          address_family:
+          - afi: ipv4
+            safi: unicast
+          neighbors:
+          - neighbor: 210.10.14.14
+          activate: yes
+          maximum_prefix: 5000
+    operation: merge
