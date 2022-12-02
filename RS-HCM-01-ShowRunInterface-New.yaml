@@ -6,6 +6,6 @@
     ios_command:
       commands:
         - show run interface
-    register: show_ip
-  - debug: var=show_ip.stdout_lines
+    register: show_run
+  - debug: var=show_run.stdout_lines
 #cac lenh phai dung tren cisco
