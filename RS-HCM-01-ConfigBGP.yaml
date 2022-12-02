@@ -17,4 +17,4 @@
           - neighbor: 210.10.14.14
           activate: yes
           maximum_prefix: 5000
-    operation: merge
+        operation: merge
