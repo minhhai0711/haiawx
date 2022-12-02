@@ -1,0 +1,11 @@
+---
+- name: Interface
+  hosts: RS-HCM-01
+  tasks:
+  - name: showRunInterface
+    ios_command:
+      commands:
+        - show run interface
+    register: show_ip
+  - debug: var=show_ip.stdout_lines
+#cac lenh phai dung tren cisco
