@@ -1,5 +1,4 @@
 ---
-- name: BGP
   tasks: 
   - name: configureBGP
   cisco.ios.ios_bgp:
