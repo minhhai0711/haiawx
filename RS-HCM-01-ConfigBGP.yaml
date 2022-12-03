@@ -7,5 +7,13 @@
       parents: router bgp 1000
       lines:
         - neighbor 210.10.14.14 remote-as 100
-        - neighbor 210.10.10.118 description Peerv4-ASN-118
-        - neighbor 210.10.10.118 version 4
+        - neighbor 210.10.14.14 description Peerv4-ASN-100
+        - neighbor 210.10.10.14 version 4
+        - address-family ipv4
+        - neighbor 210.10.114.14 activate
+        - neighbor 210.10.14.14 send-community
+        - neighbor 210.10.14.14 soft-reconfiguration inbound
+        - neighbor 210.10.14.14 prefix-list DOMESTIC-v4 out
+        - neighbor 210.10.14.14 route-map Peer-VNIX-No-Export out
+        - neighbor 210.10.14.14 maximum-prefix 5000 100
+        - neighbor 210.10.14.14 filter-list 14 in
