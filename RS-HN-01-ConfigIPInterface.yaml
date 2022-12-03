@@ -6,10 +6,8 @@
       parents: interface Ethernet0/1
       lines:
         - des VNIX
-        - no ip address
         - ip address 210.10.10.1 255.255.255.0
         - no shutdown
-        - duplex full
   - name: showInterface
     ios_command:
       commands:
