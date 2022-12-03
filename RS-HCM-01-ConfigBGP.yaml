@@ -15,5 +15,3 @@
             safi: unicast
           neighbors:
           - neighbor: 210.10.14.14
-          activate: yes
-          maximum_prefix: 5000
