@@ -3,7 +3,7 @@
   hosts: RS-HCM-01
   tasks:
     - name: ConfigBGP
-      cisco.ios.ios_bgp:
+      ios_bgp:
         config:
           bgp_as: 1000
           log_neighbor_changes: true
@@ -17,4 +17,3 @@
           - neighbor: 210.10.14.14
           activate: yes
           maximum_prefix: 5000
-        operation: merge
