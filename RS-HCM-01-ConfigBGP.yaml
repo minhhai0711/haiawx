@@ -1,17 +1,11 @@
 ---
-  tasks: 
-  - name: configureBGP
-  cisco.ios.ios_bgp:
-    config:
-      bgp_as: 1000
-      log_neighbor_changes: true
-      neighbors:
-      - neighbor: 210.10.14.14
-        remote_as: 100
-      address_family:
-      - afi: ipv4
-        safi: unicast
-        neighbors:
-        - neighbor: 210.10.14.14
-          activate: yes
-          maximum_prefix: 5000
+- name: ConfigBGP
+  hosts: RS-HCM-01
+  tasks:
+  - name: ConfigBGP
+    ios_config:
+      parents: router bgp 1000
+      lines:
+        - neighbor 210.10.14.14 remote-as 100
+        - neighbor 210.10.10.118 description Peerv4-ASN-118
+        - neighbor 210.10.10.118 version 4
