@@ -9,7 +9,7 @@
           log_neighbor_changes: true
           neighbors:
           - neighbor: 210.10.14.14
-          remote_as: 100
+          - remote_as: 100
           address_family:
           - afi: ipv4
             safi: unicast
