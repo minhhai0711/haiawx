@@ -1,5 +1,7 @@
 ---
-- name: configureBGP
+- name: BGP
+  tasks: 
+  - name: configureBGP
   cisco.ios.ios_bgp:
     config:
       bgp_as: 1000
