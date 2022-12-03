@@ -8,8 +8,6 @@
       lines:
         - neighbor 210.10.14.14 remote-as 100
         - neighbor 210.10.14.14 description Peerv4-ASN-14
-        - address-family ipv4
-        - neighbor 210.10.14.14 activate
         - neighbor 210.10.14.14 send-community
         - neighbor 210.10.14.14 soft-reconfiguration inbound
         - neighbor 210.10.14.14 prefix-list DOMESTIC-v4 out
