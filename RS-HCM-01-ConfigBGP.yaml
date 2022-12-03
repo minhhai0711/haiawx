@@ -4,8 +4,8 @@
   tasks:
   - name: ConfigBGP_Session
     ios_config:
-      parents: router bgp 1000
       lines:
+        - router bgp 1000
         - neighbor 210.10.14.14 remote-as 100
         - neighbor 210.10.14.14 description Peerv4-ASN-14
   - name: ConfigIP_AS_Path
