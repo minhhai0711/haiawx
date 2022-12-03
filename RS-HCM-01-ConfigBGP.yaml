@@ -9,9 +9,6 @@
         - neighbor 210.10.14.14 remote-as 100
         - neighbor 210.10.14.14 description Peerv4-ASN-100
         - neighbor 210.10.10.14 version 4
-        - neighbor 2001:a::14 remote-as 100
-        - neighbor 2001:a::14 description Peerv4-ASN-100
-        - neighbor 2001:a::14 version 4
         - address-family ipv4
         - neighbor 210.10.14.14 activate
         - neighbor 210.10.14.14 send-community
