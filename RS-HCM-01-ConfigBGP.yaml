@@ -1,17 +1,7 @@
 ---
-- name: BGP
-  hosts: RS-HCM-01
-  tasks:
-    - name: ConfigBGP
-      cisco.ios.ios_bgp:
-        config:
-          bgp_as: 1000
-          log_neighbor_changes: true
-          neighbors:
-          - neighbor: 210.10.14.14
-            remote_as: 100
-          address_family:
-          - afi: ipv4
-            safi: unicast
-          neighbors:
-          - neighbor: 210.10.14.14
+router:
+  bgp:
+    - id: 1000
+      neighbor:
+        - id: 210.10.14.14
+          remote_as: 100
