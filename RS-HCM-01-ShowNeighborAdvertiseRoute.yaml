@@ -1,0 +1,11 @@
+---
+- name: ShowBGPRouteReceiver
+  hosts: RS-HCM-01
+  tasks:
+  - name: ShowNeightborAdvertiseRoute
+    ios_command:
+      commands:
+        - show ip bgp neighbors 210.10.14.14 received-routes
+    register: show_ip
+  - debug: var=show_ip.stdout_lines
+#cac lenh phai dung tren cisco
