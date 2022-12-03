@@ -2,18 +2,38 @@
 - name: ConfigBGP
   hosts: RS-HCM-01
   tasks:
-  - name: ConfigBGP
+  - name: ConfigBGP_Session
     ios_config:
       parents: router bgp 1000
       lines:
         - neighbor 210.10.14.14 remote-as 100
         - neighbor 210.10.14.14 description Peerv4-ASN-100
         - neighbor 210.10.10.14 version 4
+        - neighbor 2001:a::14 remote-as 100
+        - neighbor 2001:a::14 description Peerv6-ASN-100
+        - neighbor 2001:a::14 version 4
+  - name: ConfigBGP_address_familly_ipv4
+    ios_config:
+      parents: router bgp 1000
+      lines:
         - address-family ipv4
-        - neighbor 210.10.114.14 activate
+        - neighbor 210.10.14.14 activate
         - neighbor 210.10.14.14 send-community
         - neighbor 210.10.14.14 soft-reconfiguration inbound
         - neighbor 210.10.14.14 prefix-list DOMESTIC-v4 out
         - neighbor 210.10.14.14 route-map Peer-VNIX-No-Export out
         - neighbor 210.10.14.14 maximum-prefix 5000 100
         - neighbor 210.10.14.14 filter-list 14 in
+  - name: ConfigBGP_address_familly_ipv6
+    ios_config:
+      parents: router bgp 1000
+      lines:
+        - address-family ipv6
+        - neighbor 2001:a::14 activate
+        - neighbor 2001:a::14 send-community
+        - neighbor 2001:a::14 soft-reconfiguration inbound
+        - neighbor 2001:a::14 prefix-list DOMESTIC-v4 out
+        - neighbor 2001:a::14 route-map Peer-VNIX-No-Export out
+        - neighbor 2001:a::14 maximum-prefix 5000 100
+        - neighbor 2001:a::14 filter-list 14 in
+        - write memory
