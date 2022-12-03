@@ -8,4 +8,18 @@
       lines:
         - neighbor 210.10.14.14 remote-as 100
         - neighbor 210.10.14.14 description Peerv4-ASN-14
-        
+  - name: ConfigIP_AS_Path
+    ios_config:
+      lines:
+        - ip as-path access-list 14 permit ^(100_)+$
+        - ip as-path access-list 14 deny .*
+        - exit
+        - write memory
+        - exit
+  - name: ConfigIP_IP_prefix_list
+    ios_config:
+      lines:
+        - ip prefix-list DOMESTIC-v4 seq 100 permit 203.119.36.0/22 le 24
+        - exit
+        - write memory
+        - exit
