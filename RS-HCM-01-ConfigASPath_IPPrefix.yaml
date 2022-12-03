@@ -17,3 +17,7 @@
         - exit
         - write memory
         - exit
+  - name: Clear_BGP_Session
+    ios_config:
+      lines:
+        - clear ip bgp * soft
