@@ -1,5 +1,6 @@
 ---
 - name: Config_IPInterface
+  hosts: RS-HN-01
   tasks:
   - name: interfaceIPaddress
     ios_config:
